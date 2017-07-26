@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>抽奖活动</title>
+    <link href="http://wsacdn2.miaopai.com/static20131031/favicon.ico" rel="SHORTCUT ICON">
+    <style>
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        display: block;
+    }
+    
+    html,
+    body {
+        min-height: 100%;
+    }
+    
+    body {
+        line-height: 1;
+        background: url(bj.jpg) no-repeat;
+        background-size: 100% 100%;
+        font-size: 1em;
+    }
+    
+    ol,
+    ul {
+        list-style: none;
+    }
+    
+    blockquote,
+    q {
+        quotes: none;
+    }
+    
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    
+    .clearfix:after {
+        content: "\200B";
+        display: block;
+        height: 0;
+        width: 0;
+        clear: both;
+        font-size: 0
+    }
+    
+    .clearfix {
+        zoom: 1
+    }
+    
+    .title {
+        color: #259efc;
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        height: 20px;
+        padding: 14px 0;
+        line-height: 20px;
+        font-size: 18px;
+    }
+    
+    .btns {
+        width: 433px;
+        text-align: center;
+        height: 30px;
+        margin: 10px auto;
+    }
+    
+    .btns button {
+        display: block;
+        float: left;
+        width: 80px;
+        height: 30px;
+        padding: 0;
+        text-align: center;
+        background: #036;
+        color: #fff;
+        cursor: pointer;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        font-family: "微软雅黑";
+        font-size: 14px;
+        line-height: 28px;
+        margin-left: 10px;
+    }
+    
+    .btns button:disabled {
+        cursor: not-allowed;
+    }
+    
+    #img_parent {
+        margin: 0 auto;
+        width: 1200px;
+        text-align: center;
+    }
+    
+    .img_wrapper {
+        text-align: center;
+        width: 500px;
+        height: 500px;
+        max-width: 500px;
+        max-height: 500px;
+        min-width: 220px;
+        min-height: 220px;
+        position: relative;
+        background: #fff;
+        margin: 0 auto;
+        display: inline-block;
+    }
+    
+    #txt {
+        font-size: 14px;
+        color: #ccc999;
+        text-align: center;
+        margin: 0 auto;
+        width: 500px;
+        height: 50px;
+        padding-top: 10px;
+    }
+    
+    .user_header_css {
+        text-align: center;
+        width: 500px;
+        max-width: 500px;
+        min-width: 220px;
+        position: relative;
+        margin: 0 auto;
+        display: inline-block;
+        margin: 10px;
+        background: #fff;
+        /*padding: 5px;*/
+    }
+    
+    .user_header_css img {
+        max-width: 100%;
+        max-height: 100%;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .btns b,
+    .btns input {
+        display: block;
+        float: left;
+        height: 28px;
+        line-height: 28px;
+        padding: 0;
+        text-align: center;
+    }
+    
+    .btns input {
+        width: 50px;
+        border: 1px solid #000;
+        border-radius: 5px;
+    }
+    
+    .wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    </style>
+    <script src='name.txt'></script>
+
+    <body>
+        <div class="wrapper">
+            <div id='img_parent' class='clearfix'>
+                <div class="user_header_css">
+                </div>
+            </div>
+            <div class="btns">
+                <b>抽奖的人数：</b>
+                <input type="text" id='ipt_num' value="1">
+                <button id="set_num">确定</button>
+                <button id="start">开始</button>
+                <button id="stop">停止</button>
+            </div>
+        </div>
+    </body>
+    <script src='js/jquery-1.10.2.min.js'></script>
+    <script>
+    var imageArray = [];
+    var storage = window.localStorage;
+    var oriName = name.split(",");
+    var timer2 = null,
+        item = 0,
+        numcur = 0,
+        count = 0,
+        num2 = 0,
+        prize_obj = {},
+        cur_prize_person = []; //本期中奖人数
+
+    function uploadArray() {
+        for (var i in storage) {
+            for (var j = 0; j < oriName.length; j++) {
+                if (storage[i] == oriName[j]) {
+                    oriName.splice(j, 1);
+                }
+            }
+            item = parseInt(item) < parseInt(i) ? parseInt(i) : parseInt(item);
+        }
+        imageArray = oriName;
+    }
+    uploadArray();
+
+
+    // 获取抽奖的人数
+    function GetIptNum() {
+        var ipt_num = parseInt($("#ipt_num").val());
+        var limit_num = ipt_num > 10 ? 10 : ipt_num;
+        $("#ipt_num").val(limit_num);
+        return limit_num;
+    }
+
+
+
+    //加载时触发
+    window.onload = function() {
+        var start = document.getElementById("start");
+        var stop = document.getElementById("stop");
+        var set_num = document.getElementById("set_num");
+
+        set_num.onclick = setNumFun;
+        start.onclick = startFun; //这个函数后面加括号，就直接调用了该函数，所以不要加
+        stop.onclick = stopFun;
+
+        setNumFun();
+    }
+
+
+
+    // 设置抽奖人数
+    function setNumFun() {
+        var str = '';
+        var total_num = GetIptNum();
+
+        var perW = (1200 - (total_num * 20)) / (total_num);
+        for (var i = total_num - 1; i >= 0; i--) {
+            str += '<div class="user_header_css" style="width:' + perW + 'px">' + '<div style="width:' + perW + 'px;height:' + perW + 'px" class="img_wrapper"><img class="user_header"  src="default.jpg"></div>' + '<h2 class="title">开始抽奖！</h2>' + '</div>'
+        }
+
+        $("#img_parent").html(str);
+
+    }
+
+    //点击开始，标题栏开始轮动
+    function startFun() {
+
+        var total_num = GetIptNum();
+        var title = $(".title");
+        var start = $("#start");
+        var user_header = $(".user_header");
+        var set_num = $("#set_num");
+        clearInterval(timer2); //开始时，清除计时器，避免二次触发
+
+        // var imageArray.length/total_num;
+        for (var i = 0; i < total_num; i++) {
+            prize_obj[i] = {};
+            prize_obj[i]['numcur'] = -1;
+            prize_obj[i]['num2'] = -1;
+        }
+
+        timer2 = setInterval(function() {
+
+            for (var i = 0; i < total_num; i++) {
+                // console.log(prize_obj[i]['numcur'] ,prize_obj[i]['num2'])
+                while ((prize_obj[i]['numcur'] == prize_obj[i]['num2']) && imageArray.length > 0) {
+                    if(imageArray.length == 1){
+                        prize_obj[i]['numcur'] = 0;
+                        break;
+                    }
+                    prize_obj[i]['numcur'] = Math.floor(Math.random() * imageArray.length);
+                }
+                prize_obj[i]['num2'] = prize_obj[i]['numcur'];
+              
+                if (!!imageArray[prize_obj[i]['num2']] && (imageArray[prize_obj[i]['num2']] != undefined)) {
+                    title.eq(i).html(imageArray[prize_obj[i]['num2']]);
+                    user_header.eq(i).attr("src", "img/" + imageArray[prize_obj[i]['num2']] + ".jpg");
+                } else {
+                    title.eq(i).html("没有人了哦");
+                    user_header.eq(i).attr("src", "default.jpg");
+                }
+
+            }
+
+        }, 100);
+
+
+
+        start.css("background", "#ccc").attr("disabled", true);
+        set_num.css("background", "#ccc").attr("disabled", true);
+
+    }
+    //点击停止，标题栏停止轮动并输出轮动结果
+    function stopFun() {
+        var title = $(".title");
+        var start = $("#start");
+        var user_header = $(".user_header");
+        var set_num = $("#set_num");
+        var total_num = GetIptNum();
+        // var imageArray.length/total_num;
+        for (var i = 0; i < total_num; i++) {
+            prize_obj[i] = {};
+            prize_obj[i]['numcur'] = -1;
+            prize_obj[i]['num2'] = -1;
+            // 抽中奖人数
+            while ((prize_obj[i]['numcur'] == prize_obj[i]['num2']) && imageArray.length > 0) {
+                prize_obj[i]['numcur'] = Math.floor(Math.random() * imageArray.length);
+            }
+            cur_prize_person[i] = imageArray[prize_obj[i]['numcur']];
+
+            storage.setItem(++item, cur_prize_person[i]);
+            uploadArray();
+        }
+
+        clearInterval(timer2);
+        title.html("");
+        user_header.attr("src", "");
+        for (var i = 0; i < cur_prize_person.length; i++) {
+            if (!!cur_prize_person[i]) {
+                title.eq(i).html(cur_prize_person[i]);
+                user_header.eq(i).attr("src", "img/" + cur_prize_person[i] + ".jpg");
+            } else {
+                title.eq(i).html("没有人了哦");
+                user_header.eq(i).attr("src", "default.jpg");
+            }
+
+            console.log("中奖人：" + cur_prize_person[i]);
+        }
+        start.css("background", "#036").attr("disabled", false);
+        set_num.css("background", "#036").attr("disabled", false);
+
+    }
+    </script>
+
+</html>
