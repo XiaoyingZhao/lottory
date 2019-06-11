@@ -308,7 +308,7 @@
     function uploadArray() {
         for (var i in storage) {
             for (var j = 0; j < oriName.length; j++) {
-                if (storage[i] == oriName[j]) {
+                if (storage[i] === oriName[j]) {
                     oriName.splice(j, 1);
                 }
             }
@@ -423,7 +423,7 @@
                 prize_obj[i]['numcur'] = Math.floor(Math.random() * imageArray.length);
             }
             cur_prize_person[i] = imageArray[prize_obj[i]['numcur']];
-
+            console.log(cur_prize_person)
             storage.setItem(++item, cur_prize_person[i]);
             uploadArray();
         }
